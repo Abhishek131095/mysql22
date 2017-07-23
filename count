@@ -1,0 +1,65 @@
+CREATE DATABASE amoh_db;                                                                                                                    
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [(none)]> USE amoh_db;                                                                                                                                
+Database changed                                                                                                                                              
+MariaDB [amoh_db]> select database();                                                                                                                         
++------------+                                                                                                                                                
+| database() |                                                                                                                                                
++------------+                                                                                                                                                
+| amoh_db    |                                                                                                                                                
++------------+                                                                                                                                                
+1 row in set (0.00 sec)                                                                                                                                       
+                                                                                                                                                              
+MariaDB [amoh_db]> CREATE TABLE info(name VARCHAR(15) NOT NULL, durability VARCHAR(6) NOT NULL,RELIABLE VARCHAR(8) NOT NULL);                                 
+Query OK, 0 rows affected (0.01 sec)                                                                                                                          
+                                                                                                                                                              
+MariaDB [amoh_db]> INSERT INTO info("motor","good","yes");                                                                                                    
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"
+motor","good","yes")' at line 1                                                                                                                               
+MariaDB [amoh_db]> INSERT INTO info VALUES("motor","good","yes");                                                                                             
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [amoh_db]> INSERT INTO info VALUES("GENERATOR","bad","no");                                                                                           
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [amoh_db]> INSERT INTO info VALUES("GENERATOR","good","yes");                                                                                         
+Query OK, 1 row affected (0.00 sec)                        
+MariaDB [amoh_db]> SELECT * from info;                                                                                                                        
++-----------+------------+----------+                                                                                                                         
+| name      | durability | RELIABLE |                                                                                                                         
++-----------+------------+----------+                                                                                                                         
+| motor     | good       | yes      |                                                                                                                         
+| GENERATOR | bad        | no       |                                                                                                                         
+| GENERATOR | good       | yes      |                                                                                                                         
++-----------+------------+----------+                                                                                                                         
+3 rows in set (0.00 sec)                                                                                                                                      
+                                                                                                                                                              
+MariaDB [amoh_db]> SELECT COUNT(*) FROM info;                                                                                                                 
++----------+                                                                                                                                                  
+| COUNT(*) |                                                                                                                                                  
++----------+                                                                                                                                                  
+|        3 |                                                                                                                                                  
++----------+                                                                                                                                                  
+1 row in set (0.00 sec)                                                                                                                                       
+                                                                                                                                                              
+MariaDB [amoh_db]> SELECT SUM(name) from INFO                                                                                                                 
+    -> SELECT SUM(name) from INFO;                                                                                                                            
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'S
+ELECT SUM(name) from INFO' at line 2                                                                                                                          
+MariaDB [amoh_db]> SELECT SUM(name) FROM info;                                                                                                                
++-----------+                                                                                                                                                 
+| SUM(name) |                                                                                                                                                 
++-----------+                                                                                                                                                 
+|         0 |                                                                                                                                                 
++-----------+                                                                                                                                                 
+1 row in set, 3 warnings (0.00 sec)            
+MariaDB [amoh_db]> SELECT DISTINCT(name) FROM info;                                                                                                           
++-----------+                                                                                                                                                 
+| name      |                                                                                                                                                 
++-----------+                                                                                                                                                 
+| motor     |                                                                                                                                                 
+| GENERATOR |                                                                                                                                                 
++-----------+                                                                                                                                                 
+2 rows in set (0.00 sec)                                                                                                                                      
+                                                                                                                                                              
