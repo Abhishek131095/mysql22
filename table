@@ -1,0 +1,30 @@
++------------+-------------+------+-----+---------+-------+                                                                                                    
+| last_name  | varchar(15) | NO   |     | NULL    |       |                                                                                                    
+| first_name | varchar(15) | NO   |     | NULL    |       |                                                                                                    
+| suffix     | varchar(5)  | YES  |     | NULL    |       |                                                                                                    
+| sex        | varchar(1)  | YES  |     | NULL    |       |                                                                                                    
+| city       | varchar(20) | NO   |     | NULL    |       |                                                                                                    
+| state      | varchar(2)  | NO   |     | NULL    |       |                                                                                                    
+| age        | int(11)     | YES  |     | NULL    |       |                                                                                                    
++------------+-------------+------+-----+---------+-------+                                                                                                    
+7 rows in set (0.00 sec)                                                                                                                                       
+                                                                                                                                                               
+MariaDB [ddd_db]> SHOW TABLES;                                                                                                                                 
++------------------+                                                                                                                                           
+| Tables_in_ddd_db |                                                                                                                                           
++------------------+                                                                                                                                           
+| myfriends        |                                                                                                                                           
++------------------+                                                                                                                                           
+1 row in set (0.00 sec)                                                                                                                                        
+                                                                                                                                                               
+MariaDB [ddd_db]> INSERT INTO myfriends VALUES("Chodu","Anvita","Ms","f","BIHAR","br",54);                                                                     
+Query OK, 1 row affected (0.00 sec)                                                                                                                            
+                                                                                                                                                               
+MariaDB [ddd_db]> SELECT * from myfriends;                                                                                                                     
++-----------+------------+--------+------+---------+-------+------+                                                                                            
+| last_name | first_name | suffix | sex  | city    | state | age  |                                                                                            
++-----------+------------+--------+------+---------+-------+------+                                                                                            
+| MOHANTY   | ABHISHEK   | MR     | M    | KOLKATA | WB    |   21 |                                                                                            
+| Chodu     | Anvita     | Ms     | f    | BIHAR   | br    |   54 |                                                                                            
++-----------+------------+--------+------+---------+-------+------+                                                                                            
+2 rows in set (0.00 sec)                                             
