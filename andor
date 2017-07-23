@@ -1,0 +1,63 @@
+CREATE DATABASE amoh_db;                                                                                                                    
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [(none)]> USE amoh_db;                                                                                                                                
+Database changed                                                                                                                                              
+MariaDB [amoh_db]> select database();                                                                                                                         
++------------+                                                                                                                                                
+| database() |                                                                                                                                                
++------------+                                                                                                                                                
+| amoh_db    |                                                                                                                                                
++------------+                                                                                                                                                
+1 row in set (0.00 sec)                                                                                                                                       
+                                                                                                                                                              
+MariaDB [amoh_db]> CREATE TABLE myfriends(name VARCHAR(15) NOT NULL, age int);                                                                                
+Query OK, 0 rows affected (0.01 sec)                                                                                                                          
+                                                                                                                                                              
+MariaDB [amoh_db]> INSERT INTO myfriends VALUES("VINODINI",25);                                                                                               
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [amoh_db]> INSERT INTO myfriends VALUES("BANU",27);                                                                                                   
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [amoh_db]> INSERT INTO myfriends VALUES("KAUSHIK",23);                                                                                                
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [amoh_db]> INSERT INTO myfriends VALUES("PRAVEEN",25);                                                                                                
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+     INSERT INTO myfriends VALUES("KAMAL",22);                                                                                                  
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [amoh_db]> INSERT INTO myfriends VALUES("MALINI",24);                                                                                                 
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [amoh_db]> INSERT INTO myfriends VALUES("RAMESH",32);                                                                                                 
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [amoh_db]> SELECT * from myfriends;                                                                                                                   
++----------+------+                                                                                                                                           
+| name     | age  |                                                                                                                                           
++----------+------+                                                                                                                                           
+| VINODINI |   25 |                                                                                                                                           
+| BANU     |   27 |                                                                                                                                           
+| KAUSHIK  |   23 |                                                                                                                                           
+| PRAVEEN  |   25 |                                                                                                                                           
+| KAMAL    |   22 |                                                                                                                                           
+| MALINI   |   24 |                                                                                                                                           
+| RAMESH   |   32 |                                                                                                                                           
++----------+------+                                                                                                                                           
+7 rows in set (0.00 sec)                                                                                                                                      
+                                                                                                                                                              
+MariaDB [amoh_db]> SELECT * from myfriends where age=='22' or age=='32';                                                                                      
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '=
+='22' or age=='32'' at line 1                                                                                                                                 
+MariaDB [amoh_db]> SELECT * from myfriends where age='22' or ag=='32';                                                                                        
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '=
+='32'' at line 1                                                                                                                                              
+MariaDB [amoh_db]> SELECT * from myfriends where age='22' or  age='32';   
++--------+------+                                                                                                                                             
+| name   | age  |                                                                                                                                             
++--------+------+                                                                                                                                             
+| KAMAL  |   22 |                                                                                                                                             
+| RAMESH |   32 |                                                                                                                                             
++--------+------+     
