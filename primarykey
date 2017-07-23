@@ -1,0 +1,61 @@
+-MariaDB [(none)]> CREATE DATABASE amoh_db;                                                                                                                    
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+                                                                                                                                                              
+MariaDB [(none)]> USE amoh_db;                                                                                                                                
+Database changed                                                                                                                                              
+MariaDB [amoh_db]> Select database():                                                                                                                         
+    -> Select database();                                                                                                                                     
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':
+Select database()' at line 1                                                                                                                                  
+MariaDB [amoh_db]> select database();                                                                                                                         
++------------+                                                                                                                                                
+| database() |                                                                                                                                                
++------------+                                                                                                                                                
+| amoh_db    |                                                                                                                                                
++------------+                                                                                                                                                
+1 row in set (0.00 sec)                                                                                                                                       
+                                                                                                                                                              
+MariaDB [amoh_db]> CREATE TABLE info(product_nAME VARCHAR(15) NOT NULL,product_efficiency VARCHAR(15) NOT NULL,product_price int);                            
+Query OK, 0 rows affected (0.00 sec)                                                                                                                          
+                                                                                                                                                              
+MariaDB [amoh_db]> INSERT INTO info VALUES("motor","good","30000");                                                                                           
+Query OK, 1 row affected (0.00 sec)                                                                                                                           
+MariaDB [amoh_db]> SELECT * from info;                                                                                                                        
++--------------+--------------------+---------------+                                                                                                         
+| product_nAME | product_efficiency | product_price |                                                                                                         
++--------------+--------------------+---------------+                                                                                                         
+| motor        | good               |         30000 |                                                                                                         
++--------------+--------------------+---------------+                                                                                                         
+1 row in set (0.00 sec)                                                                                                                                       
+                                                                                                                                                              
+MariaDB [amoh_db]> ALTER TABLE info ADD TAX SMALLINT UNSIGNED;                                                                                                
+Query OK, 0 rows affected (0.01 sec)                                                                                                                          
+Records: 0  Duplicates: 0  Warnings: 0                                                                                                                        
+                                                                                                                                                              
+MariaDB [amoh_db]> desc info;                                                                                                                                 
++--------------------+----------------------+------+-----+---------+-------+                                                                                  
+| Field              | Type                 | Null | Key | Default | Extra |                                                                                  
++--------------------+----------------------+------+-----+---------+-------+                                                                                  
+| product_nAME       | varchar(15)          | NO   |     | NULL    |       |                                                                                  
+| product_efficiency | varchar(15)          | NO   |     | NULL    |       |                                                                                  
+| product_price      | int(11)              | YES  |     | NULL    |       |                                                                                  
+| TAX                | smallint(5) unsigned | YES  |     | NULL    |       |                                                                                  
++--------------------+----------------------+------+-----+---------+-------+                                                                                  
+4 rows in set (0.00 sec)                                                                                                                                      
+                                                                                                                                                              
+MariaDB [amoh_db]> ALTER TABLE info ADD RELIABLE VARCHAR(4) PRIMARY KEY;                                                                                      
+Query OK, 0 rows affected (0.01 sec)                                                                                                                          
+Records: 0  Duplicates: 0  Warnings: 0
+MariaDB [amoh_db]> desc info;                                                                                                                                 
++--------------------+----------------------+------+-----+---------+-------+                                                                                  
+| Field              | Type                 | Null | Key | Default | Extra |                                                                                  
++--------------------+----------------------+------+-----+---------+-------+                                                                                  
+| product_nAME       | varchar(15)          | NO   |     | NULL    |       |                                                                                  
+| product_efficiency | varchar(15)          | NO   |     | NULL    |       |                                                                                  
+| product_price      | int(11)              | YES  |     | NULL    |       |                                                                                  
+| TAX                | smallint(5) unsigned | YES  |     | NULL    |       |                                                                                  
+| RELIABLE           | varchar(4)           | NO   | PRI | NULL    |       |                                                                                  
++--------------------+----------------------+------+-----+---------+-------+                                                                                  
+5 rows in set (0.00 sec)                                                                                                                                      
+                                                                                                                                                              
+                                                                                                                                                                                                                                                                               
